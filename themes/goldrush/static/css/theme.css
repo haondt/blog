@@ -1,0 +1,12 @@
+html {
+    color-scheme: dark;
+}
+
+:root {
+    --color-dark-bg: #161418;
+    --color-bright-bg: #1e1c20;
+    --color-dark-fg: #3f3d40;
+    --color-bright-fg: #ffffff;
+    --color-accent-bg: #584921;
+    --color-accent-fg: #a48836;
+}

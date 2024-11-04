@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+  <head>
+    {% block head %}
+      <title>{% block title %}{{ SITENAME|striptags }}{% endblock title %}</title>
+      <meta charset="utf-8" />
+      <meta name="generator" content="Pelican" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% if SITESUBTITLE %}
+        <meta name="description" content="{{ SITESUBTITLE }}" />
+      {% endif %}
+      {% if STYLESHEET_URL %}
+        <link rel="stylesheet" type="text/css" href="{{ STYLESHEET_URL }}" />
+      {% endif %}
+      {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Full Atom Feed" />
+      {% endif %}
+      {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Full RSS Feed" />
+      {% endif %}
+      {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom Feed" />
+      {% endif %}
+      {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_ATOM and category %}
+        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Categories Atom Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_RSS and category %}
+        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Categories RSS Feed" />
+      {% endif %}
+      {% if TAG_FEED_ATOM and tag %}
+        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Tags Atom Feed" />
+      {% endif %}
+      {% if TAG_FEED_RSS and tag %}
+        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Tags RSS Feed" />
+      {% endif %}
+        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/htmx-ext-multi-swap@2.0.0/multi-swap.js"></script>
+    {% endblock head %}
+  </head>
+
+  <body>
+    <style>
+        @scope {
+            :scope {
+                font-family : Roboto, sans-serif;
+                font-weight: 300;
+                font-style: normal;
+                font-size : 100% ;
+                background-color : var(--color-dark-bg) ;
+                color : var(--color-bright-fg) ;
+                min-width : 400px ;
+                min-height : 200px;
+            }
+        }
+    </style>
+    <header class="flex flex-col mt-20 mb-20 gap-10">
+      <hgroup class="flex flex-col align-center">
+          <h1><a 
+                  href="{{ SITEURL }}/"
+                  hx-ext="multi-swap"
+                  hx-boost="true" 
+                  hx-swap="multi:#main,#nav"
+                  >{{ SITENAME }}</a></h1>
+          {% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}
+      </hgroup>
+      <nav id="nav"><ul class="flex flex-row justify-center gap-20">
+        <style>
+            @scope {
+                .nav-item > .button {
+                    font-size: 1.25rem;
+                }
+
+                .selection-indicator {
+                    height: 2px;
+                }
+
+                .selection-indicator.active {
+                    background-color: var(--color-accent-bg);
+                }
+            }
+        </style>
+        {% macro navitem(link, title, active) %}
+          <li class="nav-item flex flex-col gap-5">
+              <button 
+                  class="button" 
+                  hx-ext="multi-swap"
+                  hx-push-url="true" 
+                  hx-get="{{ link }}" 
+                  hx-swap="multi:#main,#nav"
+                  >{{ title }}</button>
+              <div class="selection-indicator {% if active %} active{% endif %}"></div>
+          </li>
+        {% endmacro %}
+        {% for title, link in MENUITEMS %}
+            {{ navitem(link, title, None) }}
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for p in pages %}
+            {{ navitem(SITEURL + "/" + p.url, p.title, p==page) }}
+          {% endfor %}
+        {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+          {% for cat, null in categories %}
+            {{ navitem(SITEURL + "/" + cat.url, cat, cat==category)}}
+          {% endfor %}
+        {% endif %}
+      </ul></nav>
+    </header>
+    <main id="main" class="w-100">
+        <style>
+            @scope(#main-container) {
+                :scope {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 30px;
+                    margin-left: 50px;
+                    margin-right: 50px;
+                    justify-content: center;
+                }
+                
+                #sidebar {
+                    width: 256px;
+                }
+
+                @media(max-width:800px) {
+                    :scope {
+                        flex-direction: column-reverse;
+                        margin: 0;
+                    }
+
+                    .card {
+                        border: none;
+                        border-top: 1px solid var(--color-dark-fg);
+                        border-bottom: 1px solid var(--color-dark-fg);
+                        border-radius: 0;
+                    }
+
+                    #sidebar {
+                        width: initial;
+                    }
+                }
+            }
+        </style>
+        <div id="main-container">
+            <div class="card" style="max-width:1000px;">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div id="sidebar" class=" flex-grow-0 flex-shrink-0">
+                <div class="card">
+                    hello!
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+      <address>
+        Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>,
+        which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+      </address>
+    </footer>
+  </body>
+</html>
+
