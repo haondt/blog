@@ -132,7 +132,7 @@
 .button.icon:hover:not(:disabled) {
     cursor: pointer;
     background-color: var(--color-bright-bg);
-    color: var(--color-accent);
+    color: var(--color-accent-bg);
 }
 
 .card {
@@ -205,5 +205,5 @@
 
 .link-chip > a:hover {
     text-decoration: none;
-    color: var(--color-accent-fg);
+    color: var(--color-accent-bg);
 }

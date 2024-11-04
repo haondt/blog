@@ -11,6 +11,10 @@ a {
     text-decoration: none;
 }
 
+a.dark {
+    color: var(--color-accent-bg);
+}
+
 a:hover {
     text-decoration: underline;
 }

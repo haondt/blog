@@ -1,0 +1,26 @@
+{% if DEFAULT_PAGINATION %}
+<div class="flex flex-row gap-10">
+    <button class="icon button"
+        {% if not articles_page.has_previous() %}
+        disabled
+        {% endif %}
+        hx-select="#main-container"
+        hx-target="#main-container"
+        hx-swap="outerHTML"
+        hx-get="{{ SITEURL }}/{{ articles_previous_page.url }}">
+        <i class="fa-solid fa-chevron-left"></i>
+        Previous
+    </button>
+    <button class="icon button"
+        {% if not articles_page.has_next() %}
+        disabled
+        {% endif %}
+        hx-select="#main-container"
+        hx-target="#main-container"
+        hx-swap="outerHTML"
+        hx-get="{{ SITEURL }}/{{ articles_next_page.url }}">
+        Next
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+</div>
+{% endif %}
