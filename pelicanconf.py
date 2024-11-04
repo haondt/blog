@@ -43,3 +43,4 @@ MENUITEMS = [
     ("Main Site", "https://haondt.dev")
 ]
 
+DEFAULT_DATE_FORMAT = "%b %-d, %Y"

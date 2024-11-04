@@ -12,11 +12,16 @@
             </h3>
 
             <div class="flex flex-col gap-15">
-                <div class="flex flex-col gap-5">
+                <div class="flex flex-col gap-5" hx-ext="preload">
                     <div>{{ article.summary }}</div>
-                    <a href="{{ SITEURL }}/{{ article.url }}">continue reading</a>
+                    <div><a 
+                        hx-ext="multi-swap"
+                        hx-boost="true" 
+                        hx-swap="multi:#main,#nav"
+                        preload="mouseover"
+                        href="{{ SITEURL }}/{{ article.url }}">continue reading</a></div>
                 </div>
-                <div class="flex flex-row gap-20">
+                <div class="flex flex-row gap-15">
                     <div class="link-chip">
                         <i class="fa-solid fa-calendar"></i>
                         <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
