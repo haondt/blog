@@ -2,23 +2,36 @@
 
 {% block content %}
     {% block content_title %}
-        <h2>All articles</h2>
     {% endblock %}
 
+    <div class="flex flex-col gap-50">
     {% for article in articles_page.object_list %}
-        <article>
-            <header> <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
-            <section>{{ article.summary }}</section>
-            <footer>
-                <p>Published: <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time></p>
-                <address>By
+        <article class="flex flex-col gap-20">
+            <h3 >
+                {{ article.title }}
+            </h3>
+
+            <div class="flex flex-col gap-15">
+                <div class="flex flex-col gap-5">
+                    <div>{{ article.summary }}</div>
+                    <a href="{{ SITEURL }}/{{ article.url }}">continue reading</a>
+                </div>
+                <div class="flex flex-row gap-20">
+                    <div class="link-chip">
+                        <i class="fa-solid fa-calendar"></i>
+                        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+                    </div>
                     {% for author in article.authors %}
-                        <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                        <address class="link-chip">
+                            <i class="fa-solid fa-at"></i>
+                            <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                        </address>
                     {% endfor %}
-                </address>
-            </footer>
+                </div>
+            </div>
         </article>
     {% endfor %}
+    </div>
 
     {% if articles_page.has_other_pages() %}
         {% include 'pagination.html' %}

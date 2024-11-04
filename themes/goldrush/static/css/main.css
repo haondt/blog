@@ -19,7 +19,7 @@ h1 {
     font-size: 2.5rem;
 }
 
-h1 > a {
+h1 > a, h2 > a {
     font-size: inherit;
     color: inherit;
     font-weight: inherit;
@@ -28,6 +28,19 @@ h1 > a {
 h2 {
     font-size: 1.75rem;
 }
+
+h3 {
+    font-size: 1.5rem;
+}
 p {
     font-size: 1.15rem;
+}
+
+.article-title {
+    font-weight: 350;
+}
+
+.article-title:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

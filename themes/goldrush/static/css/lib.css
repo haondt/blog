@@ -15,10 +15,14 @@
 .justify-center { justify-content: center; }
 .justify-evenly { justify-content: space-evenly; }
 
-.gap-5 { gap: 5; }
+.gap-5 { gap: 5px; }
 .gap-10 { gap: 10px; }
+.gap-15 { gap: 15px; }
 .gap-20 { gap: 20px; }
+.gap-25 { gap: 25px; }
 .gap-30 { gap: 30px; }
+.gap-40 { gap: 40px; }
+.gap-50 { gap: 50px; }
 
 .p-5 { padding: 5px; }
 .p-10 { padding: 10px; }
@@ -102,6 +106,7 @@
     padding-top: 10px;
     border-radius: 8px;
     border: none;
+    font-weight: inherit;
 }
 
 .button:not(:disabled) {
@@ -110,6 +115,7 @@
 
 .button:hover {
     background-color: var(--color-bright-bg);
+    text-decoration: none;
 }
 
 .button.icon {
@@ -179,4 +185,25 @@
 }
 .chip.accent:hover {
     background-color: var(--color-accent);
+}
+
+.link-chip {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    color: var(--color-dark-fg);
+    font-weight: 600;
+}
+
+.link-chip > p, .link-chip > a {
+    font-size: 1rem;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.link-chip > a:hover {
+    text-decoration: none;
+    color: var(--color-accent-fg);
 }

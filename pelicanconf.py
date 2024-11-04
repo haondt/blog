@@ -36,7 +36,10 @@ DEFAULT_PAGINATION = 10
 
 THEME = 'themes/goldrush'
 
+DISPLAY_PAGES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = False
+
 MENUITEMS = [
-    ("foo", "bar")
+    ("Main Site", "https://haondt.dev")
 ]
 

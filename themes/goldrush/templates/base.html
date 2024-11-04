@@ -40,6 +40,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/afd44816da.js" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/htmx-ext-multi-swap@2.0.0/multi-swap.js"></script>
     {% endblock head %}
@@ -99,7 +100,10 @@
           </li>
         {% endmacro %}
         {% for title, link in MENUITEMS %}
-            {{ navitem(link, title, None) }}
+            <li class="nav-item flex flex-col gap-5">
+              <a class="button" href="{{ link }}">{{ title }}</a>
+              <div class="selection-indicator"></div>
+            </li>
         {% endfor %}
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in pages %}
@@ -149,7 +153,7 @@
             }
         </style>
         <div id="main-container">
-            <div class="card" style="max-width:1000px;">
+            <div class="card flex-grow-1" style="max-width:1000px;">
                 {% block content %}
                 {% endblock %}
             </div>
@@ -161,7 +165,7 @@
         </div>
     </main>
     <footer>
-      <address>
+      <address class="ml-10 mr-10 mt-30" style="text-align:center;">
         Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>,
         which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
       </address>
