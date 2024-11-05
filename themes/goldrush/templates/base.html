@@ -170,8 +170,36 @@
                 {% endblock %}
             </div>
             <div id="sidebar" class=" flex-grow-0 flex-shrink-0">
-                <div class="card">
-                    hello!
+                <div class="card" style="align-items:flex-start;">
+                    {% block sidebar_categories %}
+                    <h3>Categories</h3>
+                    <div class="chip-container">
+                        {% for category, _ in categories %}
+                        <span 
+                            class="button chip"
+                            hx-get="{{ SITEURL }}/{{ category.url }}"
+                            hx-ext="multi-swap"
+                            hx-push-url="true" 
+                            hx-swap="multi:#main,#nav"
+                            >{{ category.name }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endblock %}
+
+                    {% block sidebar_tags %}
+                    <h3>Tags</h3>
+                    <div class="chip-container">
+                        {% for tag, _ in tags %}
+                        <span 
+                            class="button chip"
+                            hx-get="{{ SITEURL }}/{{ tag.url }}"
+                            hx-ext="multi-swap"
+                            hx-push-url="true" 
+                            hx-swap="multi:#main,#nav"
+                            >{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endblock %}
                 </div>
             </div>
         </div>
