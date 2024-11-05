@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - Categories{% endblock %}
+
+{% block content %}
+<h2>Categories</h2>
+<div class="flex flex-col align-left w-100 gap-10">
+    {% for category, _ in categories %}
+        <div class="flex flex-col gap-5">
+            <h3><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></h3>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

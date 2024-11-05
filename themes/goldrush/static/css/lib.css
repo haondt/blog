@@ -194,7 +194,11 @@
 }
 
 .chip.accent {
-    border-color: var(--color-accent);
+    border-color: var(--color-accent-bg);
+}
+
+.chip.accent.active {
+    background-color: var(--color-accent-bg);
 }
 
 .chip:hover {
@@ -202,7 +206,7 @@
     transition: initial;
 }
 .chip.accent:hover {
-    background-color: var(--color-accent);
+    background-color: var(--color-accent-bg);
 }
 
 .link-chip {

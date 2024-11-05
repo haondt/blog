@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - Authors{% endblock %}
+
+{% block content %}
+<h2>Authors</h2>
+<div class="flex flex-col align-left w-100 gap-10">
+    {% for author, articles in authors|sort %}
+        <div class="flex flex-col gap-5">
+            <h3><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

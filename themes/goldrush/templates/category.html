@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - {{ category }}{% endblock %}
+
+{% block content_title %}
+{% endblock %}
+
+
+{% block sidebar_categories %}
+<h4>Categories</h4>
+<div class="chip-container">
+    {% for cat, _ in categories %}
+    <span 
+        class="button chip {% if category.name==cat.name %}accent active{% endif %}"
+        hx-get="{{ SITEURL }}/{{ cat.url }}"
+        hx-ext="multi-swap"
+        hx-push-url="true" 
+        hx-swap="multi:#main,#nav"
+        >{{ cat.name }}</span>
+    {% endfor %}
+</div>
+{% endblock %}

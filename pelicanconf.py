@@ -1,5 +1,5 @@
 AUTHOR = 'haondt'
-SITENAME = 'Haondt[blog]'
+SITENAME = 'haondt[blog]'
 SITEURL = ""
 
 PATH = "content"
@@ -29,7 +29,7 @@ SOCIAL = (
     ("Another social link", "#"),
 )
 
-DEFAULT_PAGINATION = 2
+DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
