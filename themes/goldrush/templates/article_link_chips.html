@@ -7,21 +7,35 @@
     {% for author in article.authors %}
         <address class="link-chip">
             <i class="fa-solid fa-at"></i>
-            <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+            <a 
+                hx-ext="multi-swap"
+                hx-boost="true" 
+                hx-swap="multi:#main,#nav"
+                href="{{ SITEURL }}/{{ author.url }}"
+                >{{ author }}</a>
         </address>
     {% endfor %}
     
     {% if article.category %}
     <div class="link-chip">
         <i class="fa-solid fa-folder"></i>
-        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category.name }}</a>
+        <a 
+            hx-ext="multi-swap"
+            hx-boost="true" 
+            hx-swap="multi:#main,#nav"
+            href="{{ SITEURL }}/{{ article.category.url }}"
+            >{{ article.category.name }}</a>
     </div>
     {% endif %}
 
     {% for tag in article.tags %}
     <div class="link-chip">
         <i class="fa-solid fa-tag"></i>
-        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a>
+        <a 
+            hx-ext="multi-swap"
+            hx-boost="true" 
+            hx-swap="multi:#main,#nav"
+            href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a>
     </div>
     {% endfor %}
 </div>

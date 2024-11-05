@@ -45,6 +45,11 @@ MENUITEMS = [
 
 DEFAULT_DATE_FORMAT = "%b %-d, %Y"
 
+# YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+# YEAR_ARCHIVE_URL = 'posts/{date:%Y}/'
+# MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
+# MONTH_ARCHIVE_URL = 'posts/{date:%Y}/{date:%b}/'
+
 
 # Theme specific settings
 

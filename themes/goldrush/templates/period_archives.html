@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block archives_nav_item %}
+{{ navitem(SITEURL + "/" + "archives.html", "Archives", True) }}
+{% endblock %}
+
+{% block content %}
+<div class="flex flex-col align-left w-100 gap-10">
+    <h1>{{ period | reverse | join(' ') }}</h1>
+
+        {% for article in dates %}
+            <div class="flex flex-col gap-5">
+            <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+            {% include "article_link_chips.html" %}
+            </div>
+        {% endfor %}
+</div>
+{% endblock %}
+

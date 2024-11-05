@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - {{ tag }}{% endblock %}
+
+{% block content_title %}
+{% endblock %}
+
+
+{% block sidebar_tags %}
+<h4>Tags</h4>
+<div class="chip-container">
+    {% for tg, _ in tags %}
+    <span 
+        class="button chip {% if tag.name==tg.name %}accent active{% endif %}"
+        hx-get="{{ SITEURL }}/{{ tg.url }}"
+        hx-ext="multi-swap"
+        hx-push-url="true" 
+        hx-swap="multi:#main,#nav"
+        >{{ tg.name }}</span>
+    {% endfor %}
+</div>
+{% endblock %}
