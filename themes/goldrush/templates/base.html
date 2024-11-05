@@ -108,7 +108,7 @@
         {% endmacro %}
         {% for title, link in MENUITEMS %}
             <li class="nav-item flex flex-col gap-5">
-              <a class="button" href="{{ link }}">{{ title }}</a>
+                <a class="button" href="{{ link }}">{{ title }}</a>
               <div class="selection-indicator"></div>
             </li>
         {% endfor %}
@@ -116,6 +116,11 @@
           {% for p in pages %}
             {{ navitem(SITEURL + "/" + p.url, p.title, p==page) }}
           {% endfor %}
+        {% endif %}
+        {% if DISPLAY_ARCHIVES_ON_MENU %}
+            {% block  archives_nav_item %}
+            {{ navitem(SITEURL + "/" + "archives.html", "Archives", False) }}
+            {% endblock %}
         {% endif %}
         {% if DISPLAY_CATEGORIES_ON_MENU %}
           {% for cat, null in categories %}

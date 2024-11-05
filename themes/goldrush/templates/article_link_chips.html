@@ -1,0 +1,27 @@
+<!-- TODO: boost these links -->
+<div class="flex flex-row flex-wrap col-gap-15 row-gap-5">
+    <div class="link-chip">
+        <i class="fa-solid fa-calendar"></i>
+        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+    </div>
+    {% for author in article.authors %}
+        <address class="link-chip">
+            <i class="fa-solid fa-at"></i>
+            <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+        </address>
+    {% endfor %}
+    
+    {% if article.category %}
+    <div class="link-chip">
+        <i class="fa-solid fa-folder"></i>
+        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category.name }}</a>
+    </div>
+    {% endif %}
+
+    {% for tag in article.tags %}
+    <div class="link-chip">
+        <i class="fa-solid fa-tag"></i>
+        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a>
+    </div>
+    {% endfor %}
+</div>

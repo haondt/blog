@@ -40,7 +40,12 @@ DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 
 MENUITEMS = [
-    ("Main Site", "https://haondt.dev")
+    ("haondt", "https://haondt.dev"),
 ]
 
 DEFAULT_DATE_FORMAT = "%b %-d, %Y"
+
+
+# Theme specific settings
+
+DISPLAY_ARCHIVES_ON_MENU = True

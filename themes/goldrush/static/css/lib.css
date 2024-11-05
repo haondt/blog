@@ -24,6 +24,24 @@
 .gap-40 { gap: 40px; }
 .gap-50 { gap: 50px; }
 
+.row-gap-5 { row-gap: 5px; }
+.row-gap-10 { row-gap: 10px; }
+.row-gap-15 { row-gap: 15px; }
+.row-gap-20 { row-gap: 20px; }
+.row-gap-25 { row-gap: 25px; }
+.row-gap-30 { row-gap: 30px; }
+.row-gap-40 { row-gap: 40px; }
+.row-gap-50 { row-gap: 50px; }
+
+.col-gap-5 { column-gap: 5px; }
+.col-gap-10 { column-gap: 10px; }
+.col-gap-15 { column-gap: 15px; }
+.col-gap-20 { column-gap: 20px; }
+.col-gap-25 { column-gap: 25px; }
+.col-gap-30 { column-gap: 30px; }
+.col-gap-40 { column-gap: 40px; }
+.col-gap-50 { column-gap: 50px; }
+
 .p-5 { padding: 5px; }
 .p-10 { padding: 10px; }
 .p-15 { padding: 15px; }

@@ -22,18 +22,7 @@
                         preload="mouseover"
                         href="{{ SITEURL }}/{{ article.url }}">continue reading</a></div>
                 </div>
-                <div class="flex flex-row gap-15">
-                    <div class="link-chip">
-                        <i class="fa-solid fa-calendar"></i>
-                        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
-                    </div>
-                    {% for author in article.authors %}
-                        <address class="link-chip">
-                            <i class="fa-solid fa-at"></i>
-                            <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                        </address>
-                    {% endfor %}
-                </div>
+                {% include "article_link_chips.html" %}
             </div>
         </article>
     {% endfor %}

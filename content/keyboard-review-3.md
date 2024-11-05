@@ -1,6 +1,5 @@
 Title: How to Build and Deploy a Python Package With Flit and Twine - 3
 Date: 2024-11-03
-Category: Tutorials
 Tags: python, packaging
 Authors: haondt
 
