@@ -1,29 +1,63 @@
-.hll {
-    background-color:#eee;
+.highlight {
+    background-color: var(--color-bright-bg);
+    border-radius: 8px;
+    font-family: monospace;
+    padding: 10px;
 }
-.c {
-    color:#408090;
-    font-style:italic;
+.highlight > pre {
+    width: 0;
+    padding: 10px;
+    min-width: calc(100% - 20px);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.hll {
+    background-color:#3b3722;
 }
 .err {
-    border:1px solid #FF0000;
+    color:#c3515c;
 }
-.k {
-    color:#007020;
-    font-weight:bold;
+.c1 {
+    color:#c1bc8c;
+}
+.k, .nt, .ow, .kn, .bp, .kt, .kc, .nb {
+    color:#656565;
+}
+.nn {
+    color:#fff;
+}
+.nc, .na, .nf {
+    color:#9f9436;
+}
+.cp {
+    color:#d7dc68;
+}
+.n {
+    color:#a8adad;
+}
+.m, .mi {
+    color:#e3d2f5;
+}
+.s, .s2, .sd {
+    color:#77617d;
+}
+
+.p {
+    color:#6c6856;
+}
+
+/******************/
+
+.c {
+    color:#c09e54;
+    font-style:italic;
 }
 .o {
     color:#666666;
 }
 .cm {
-    color:#408090;
-    font-style:italic;
-}
-.cp {
-    color:#007020;
-}
-.c1 {
-    color:#408090;
+    color:#c09e54;
     font-style:italic;
 }
 .cs {
@@ -63,15 +97,7 @@
 .gt {
     color:#0040D0;
 }
-.kc {
-    color:#007020;
-    font-weight:bold;
-}
 .kd {
-    color:#007020;
-    font-weight:bold;
-}
-.kn {
     color:#007020;
     font-weight:bold;
 }
@@ -80,25 +106,6 @@
 }
 .kr {
     color:#007020;
-    font-weight:bold;
-}
-.kt {
-    color:#902000;
-}
-.m {
-    color:#208050;
-}
-.s {
-    color:#4070A0;
-}
-.na {
-    color:#4070A0;
-}
-.nb {
-    color:#007020;
-}
-.nc {
-    color:#0E84B5;
     font-weight:bold;
 }
 .no {
@@ -115,27 +122,12 @@
 .ne {
     color:#007020;
 }
-.nf {
-    color:#06287E;
-}
 .nl {
     color:#002070;
     font-weight:bold;
 }
-.nn {
-    color:#0E84B5;
-    font-weight:bold;
-}
-.nt {
-    color:#062873;
-    font-weight:bold;
-}
 .nv {
     color:#BB60D5;
-}
-.ow {
-    color:#007020;
-    font-weight:bold;
 }
 .w {
     color:#BBBBBB;
@@ -146,9 +138,6 @@
 .mh {
     color:#208050;
 }
-.mi {
-    color:#208050;
-}
 .mo {
     color:#208050;
 }
@@ -156,13 +145,6 @@
     color:#4070A0;
 }
 .sc {
-    color:#4070A0;
-}
-.sd {
-    color:#4070A0;
-    font-style:italic;
-}
-.s2 {
     color:#4070A0;
 }
 .se {
@@ -187,9 +169,6 @@
 }
 .ss {
     color:#517918;
-}
-.bp {
-    color:#007020;
 }
 .vc {
     color:#BB60D5;

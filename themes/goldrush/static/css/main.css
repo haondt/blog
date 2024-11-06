@@ -5,7 +5,7 @@
 
 a { 
     color: var(--color-accent-fg);
-    font-weight: 400;
+    font-weight: 325;
     text-decoration: none;
     font-size: 1.15rem;
     text-decoration: none;
@@ -53,3 +53,15 @@ p {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.content  p, .content  a {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+

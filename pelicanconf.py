@@ -51,6 +51,7 @@ DEFAULT_DATE_FORMAT = "%b %-d, %Y"
 # MONTH_ARCHIVE_URL = 'posts/{date:%Y}/{date:%b}/'
 
 
+
 # Theme specific settings
 
 DISPLAY_ARCHIVES_ON_MENU = True

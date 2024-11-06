@@ -1,6 +1,3 @@
-html {
-    color-scheme: dark;
-}
 
 :root {
     --color-dark-bg: #161418;
@@ -9,4 +6,9 @@ html {
     --color-bright-fg: #ffffff;
     --color-accent-bg: #584921;
     --color-accent-fg: #a48836;
+}
+
+html {
+    color-scheme: dark;
+    background: var(--color-dark-bg);
 }

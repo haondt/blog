@@ -22,12 +22,12 @@
 {% endblock %}
 
 {% block content %}
-  <article class="flex flex-col gap-20">
+  <article class="flex flex-col gap-20 w-100">
     <header>
         <h2>{{ article.title }}</h2>
     </header>
         {% include "article_link_chips.html" %}
-    <main>
+    <main class="content">
         {{ article.content }}
     </main>
   </article>
