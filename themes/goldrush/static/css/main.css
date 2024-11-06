@@ -60,8 +60,23 @@ p {
     gap: 10px;
 }
 
-.content  p, .content  a {
+.content p, .content  a, .content ul {
     font-size: 1rem;
     line-height: 1.25rem;
 }
 
+.content ul {
+    list-style: outside;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+code:not(.highlight code) {
+    font-family: monospace;
+    border: 1px solid var(--color-dark-fg);
+    font-size: 0.9rem;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
