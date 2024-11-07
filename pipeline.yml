@@ -2,6 +2,7 @@ tasks:
   - type: docs
     sources:
       - type: pelican
-        context: .
+        path: content
+        publishconf: publishconf.py
     auto:
       - source: push
