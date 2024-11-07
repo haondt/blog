@@ -60,13 +60,12 @@ p {
     gap: 10px;
 }
 
-.content p, .content  a, .content ul {
+.content p, .content  a, .content ul, .content ol {
     font-size: 1rem;
     line-height: 1.25rem;
 }
 
-.content ul {
-    list-style: outside;
+.content ul, .content ol {
     display: flex;
     flex-direction: column;
     margin-left: 1rem;
@@ -80,3 +79,13 @@ code:not(.highlight code) {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.content ul {
+    list-style: outside;
+
+}
+
+.content ol {
+    list-style: auto;
+}
+
