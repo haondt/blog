@@ -1,0 +1,7 @@
+tasks:
+  - type: docs
+    sources:
+      - type: pelican
+        context: .
+    auto:
+      - source: push
