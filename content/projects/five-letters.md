@@ -2,6 +2,7 @@ Title: Solving the Five Five-Letter Words Problem
 Date: 2024-11-07
 Category: projects
 Authors: haondt
+Slug: five-letters
 Tags: python
 Summary: How I solved Matt Parkers five-word problem (how many combinations of five-letter words are there with 25 unique letters?) in under 5 minutes with python.
 
