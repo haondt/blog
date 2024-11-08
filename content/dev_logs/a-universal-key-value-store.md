@@ -60,7 +60,7 @@ Now lets take this concept further.
 
 <br />
 
-#### Key Extension
+### Key Extension
 
 Let's say our user has a profile object. Easy enough, give the profile a GUID for the id, give the user a profile property, done.
 
@@ -138,7 +138,7 @@ new StorageKey<Group>(Guid.NewGuid()).Extend<Subscriber>(webhookUrl);
 
 <br/>
 
-#### Wrap Up
+### Wrap Up
 
 It's not perfect, and it may not even be the right tool for the job, but I enjoy the simplicity and in the few projects I've been using it I really enjoy it. Passing around `StorageKey<T>`s instead of ambiguous `string`s also helps a ton with readability, especially when it is the return value of a method. You can see my full implementation of `StorageKey` in my .NET library [here](https://gitlab.com/haondt/haondt.net/-/blob/main/Haondt.Identity/StorageKey/StorageKey.cs). Subject to change of course.
 

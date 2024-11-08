@@ -50,8 +50,17 @@ DEFAULT_DATE_FORMAT = "%b %-d, %Y"
 # MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 # MONTH_ARCHIVE_URL = 'posts/{date:%Y}/{date:%b}/'
 
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+        'markdown.extensions.toc': { 'title': 'Contents'}
+    }
+}
 
 
 # Theme specific settings
 
 DISPLAY_ARCHIVES_ON_MENU = True
+

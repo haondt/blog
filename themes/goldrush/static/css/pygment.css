@@ -33,17 +33,17 @@
 .cp {
     color:#d7dc68;
 }
-.n {
+.n, .nl {
     color:#a8adad;
 }
 .m, .mi {
     color:#e3d2f5;
 }
-.s, .s2, .sd {
+.s, .s1, .s2, .sd {
     color:#77617d;
 }
 
-.p {
+.p, .gh {
     color:#6c6856;
 }
 
@@ -72,10 +72,6 @@
 }
 .gr {
     color:#FF0000;
-}
-.gh {
-    color:#000080;
-    font-weight:bold;
 }
 .gi {
     color:#00A000;
@@ -122,10 +118,6 @@
 .ne {
     color:#007020;
 }
-.nl {
-    color:#002070;
-    font-weight:bold;
-}
 .nv {
     color:#BB60D5;
 }
@@ -163,9 +155,6 @@
 }
 .sr {
     color:#235388;
-}
-.s1 {
-    color:#4070A0;
 }
 .ss {
     color:#517918;
