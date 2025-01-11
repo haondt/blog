@@ -60,9 +60,6 @@ MARKDOWN = {
     }
 }
 
-# PLUGIN_PATHS = ['plugins']
-# PLUGINS = ['responsive_images']
-
 
 # Theme specific settings
 
