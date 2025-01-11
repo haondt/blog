@@ -60,7 +60,7 @@ p {
     gap: 10px;
 }
 
-.content p {
+.content p, .content li {
     color: var(--color-article-text);
 }
 
@@ -138,3 +138,67 @@ em {
     padding-top: 10px;
 }
 
+
+
+
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em; /* Adds space between images */
+
+    a:hover {
+        text-decoration: none;
+
+    }
+
+    figure {
+        flex: 1 1 calc(50% - 1em); /* Make each image take half the width, minus the gap */
+        max-width: 100%; /* Ensure the figure doesn't overflow */
+        text-align: center;
+    }
+
+    img {
+        max-height: 300px;
+        width: auto;
+        max-width: 100%; /* Ensure images resize proportionally */
+    }
+
+    /* Size-specific classes for images */
+    img.small {
+        max-height: 150px;  /* Set smaller height */
+        width: auto;        /* Maintain aspect ratio */
+    }
+
+    img.medium {
+        max-height: 300px;  /* Set medium height */
+        width: auto;        /* Maintain aspect ratio */
+    }
+
+    img.large {
+        max-height: 500px;  /* Set larger height */
+        width: auto;        /* Maintain aspect ratio */
+    }
+
+    figcaption {
+        font-size: 0.9em;
+        color: #555;
+        font-style: italic;
+        margin-top: 0.5em;
+    }
+}
+
+@media (max-width: 800px) {
+    .image-container figure {
+        flex: 1 1 100%; /* Stack images vertically on smaller screens */
+    }
+}
+
+hr {
+    width: 100%;
+    background: var(--color-dark-fg);
+    height: 1px;
+    border: none;
+}

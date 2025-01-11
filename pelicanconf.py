@@ -55,9 +55,13 @@ MARKDOWN = {
         'markdown.extensions.codehilite': {'css_class': 'highlight'},
         'markdown.extensions.extra': {},
         'markdown.extensions.meta': {},
-        'markdown.extensions.toc': { 'title': 'Contents'}
+        'markdown.extensions.toc': { 'title': 'Contents'},
+        'markdown_extensions.responsive_images': {}
     }
 }
+
+# PLUGIN_PATHS = ['plugins']
+# PLUGINS = ['responsive_images']
 
 
 # Theme specific settings

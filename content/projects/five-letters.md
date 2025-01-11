@@ -274,5 +274,5 @@ python3 five-words.py  195.82s user 19.36s system 87% cpu 4:04.76 total
 
 And there you have it, 538 possible combinations, computed in just over 4 minutes. Using numpy throughout the whole program and optimizing the number of comparisons during the alphabetical pruning could speed it up a bit, but I already hit my 5 minute goal so this is left as an exercise for the reader. You can find my completed code [here](https://github.com/haondt/five-letters).
 
-Moving everything to a language with actual 32 bit integers and contiguous arrays could speed things up too. I could probably get it under 1 minute, but as it is I'm happy with what I've come up with. How fast can you solve the problem? See if you can beat my solution. 
+Moving everything to a language with actual 32 bit integers and contiguous arrays could speed things up too. I could probably get it under 1 minute, but as it is I'm happy with what I've come up with. I'd definitely recommend trying your hand at finding your own solution.
 
