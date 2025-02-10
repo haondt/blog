@@ -40,7 +40,7 @@ DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 
 MENUITEMS = [
-    ("haondt", "https://haondt.dev"),
+    ("Main site", "https://haondt.dev"),
 ]
 
 DEFAULT_DATE_FORMAT = "%b %-d, %Y"

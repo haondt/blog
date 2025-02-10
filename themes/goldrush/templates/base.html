@@ -70,12 +70,7 @@
     </style>
     <header class="flex flex-col mt-20 mb-20 gap-20">
       <hgroup class="flex flex-col align-center">
-          <h1><a 
-                  href="{{ SITEURL }}/"
-                  hx-ext="multi-swap"
-                  hx-boost="true" 
-                  hx-swap="multi:#main,#nav"
-                  >{{ SITENAME }}</a></h1>
+          <h1>{{ SITENAME }}</h1>
           {% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}
       </hgroup>
       <nav id="nav"><ul class="flex flex-row justify-center gap-20">
@@ -106,12 +101,7 @@
               <div class="selection-indicator {% if active %} active{% endif %}"></div>
           </li>
         {% endmacro %}
-        {% for title, link in MENUITEMS %}
-            <li class="nav-item flex flex-col gap-5">
-                <a class="button" href="{{ link }}">{{ title }}</a>
-              <div class="selection-indicator"></div>
-            </li>
-        {% endfor %}
+        {{ navitem("/", "Home", output_file=="index.html") }}
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in pages %}
             {{ navitem(SITEURL + "/" + p.url, p.title, p==page) }}
@@ -127,6 +117,12 @@
             {{ navitem(SITEURL + "/" + cat.url, cat, cat==category)}}
           {% endfor %}
         {% endif %}
+        {% for title, link in MENUITEMS %}
+            <li class="nav-item flex flex-col gap-5">
+                <a class="button" href="{{ link }}">{{ title }}</a>
+              <div class="selection-indicator"></div>
+            </li>
+        {% endfor %}
       </ul></nav>
     </header>
     <main id="main" class="w-100">
