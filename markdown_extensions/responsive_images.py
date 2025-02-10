@@ -1,8 +1,33 @@
 # responsive_images.py
-# a joint production by claude and chatgpt
+# requires hyperscript
 from markdown import Extension
+from markdown import util
 from markdown.inlinepatterns import Pattern
 import xml.etree.ElementTree as etree
+from jinja2 import Template
+
+TEMPLATE = """<div class="image-container">
+    {% for path, caption, size in images %}
+    <a _="on click remove .is-hidden from the next .modal-image">
+        <figure>
+            <img src="{{ path | e }}" alt="Image {{ loop.index }}" class="{{ size }}">
+            {% if caption %}<figcaption>{{ caption | e }}</figcaption>{% endif %}
+        </figure>
+    </a>
+    <div class="modal-image is-hidden" _="
+        on click add .is-hidden to me end
+        on keydown from elsewhere
+            if I do not match .is-hidden
+                add .is-hidden to me
+        ">
+        <div class="modal-image-background">
+        </div>
+        <div class="modal-image-container">
+            <img src="{{ path | e }}">
+        </div>
+    </div>
+    {% endfor %}
+</div>"""
 
 class ResponsiveImagesPattern(Pattern):
     """Pattern to match responsive images syntax and convert to HTML."""
@@ -10,7 +35,7 @@ class ResponsiveImagesPattern(Pattern):
     def handleMatch(self, m):
         """Convert the matched pattern into HTML elements."""
         container = etree.Element('div')
-        container.set('class', 'image-container')
+        # container.set('class', 'image-container')
         
         full_data = m.group(2)
         
@@ -28,6 +53,12 @@ class ResponsiveImagesPattern(Pattern):
         paths = [p.strip() for p in paths_str.split(',')]
         captions = [c.strip() for c in captions_str.split(',')] if captions_str else [''] * len(paths)
         sizes = [size_str.strip()] * len(paths) if size_str else ['medium'] * len(paths)  # Default size is 'medium'
+
+        template = Template(TEMPLATE)
+        html = template.render(images=zip(paths, captions, sizes))
+        container.text = util.AtomicString(html)
+        container.text = self.md.htmlStash.store(html)
+        return container
         
         for i, (path, caption, size) in enumerate(zip(paths, captions, sizes), 1):
             # Create the anchor tag to make the image clickable
@@ -60,7 +91,7 @@ class ResponsiveImagesExtension(Extension):
         self.pattern = r'\[responsive-images\]\(([\s\S]+?)\)'
     
     def extendMarkdown(self, md):
-        responsive_images = ResponsiveImagesPattern(self.pattern)
+        responsive_images = ResponsiveImagesPattern(self.pattern, md)
         md.inlinePatterns.register(responsive_images, 'responsive_images', 175)
 
 def makeExtension(**kwargs):

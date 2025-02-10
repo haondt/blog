@@ -158,6 +158,7 @@ em {
         flex: 1 1 calc(50% - 1em); /* Make each image take half the width, minus the gap */
         max-width: 100%; /* Ensure the figure doesn't overflow */
         text-align: center;
+        cursor: pointer;
     }
 
     img {
@@ -187,6 +188,41 @@ em {
         color: #555;
         font-style: italic;
         margin-top: 0.5em;
+    }
+
+    .modal-image.is-hidden {
+        display: none;
+    }
+
+    .modal-image {
+        position: fixed;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        .modal-image-background {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(9, 10, 12, 0.86);
+        }
+
+        .modal-image-container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                margin: 50px;
+                max-width: calc(100% - 100px);
+                max-height: calc(100% - 100px);
+            }
+        }
     }
 }
 
